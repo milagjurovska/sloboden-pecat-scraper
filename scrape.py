@@ -151,9 +151,23 @@ def load_data(filepath):
     if os.path.exists(filepath):
         try:
             with open(filepath, 'r', encoding='utf-8') as f:
-                return json.load(f)
-        except:
-            return []
+                content = f.read()
+                
+            # SAFETY CHECK: Detect Git LFS pointer files
+            if content.startswith('version https://git-lfs.github.com/spec/v1'):
+                print(f"CRITICAL ERROR: File {filepath} is a Git LFS pointer, not actual data!")
+                print("This means Git LFS files were not downloaded correctly.")
+                sys.exit(1) # Abort immediately to prevent data loss
+                
+            return json.loads(content)
+        except json.JSONDecodeError:
+            print(f"Error: Failed to parse JSON from {filepath}. File might be corrupted.")
+            # If file exists but is invalid JSON, do NOT return empty list
+            # causing overwrite. Better to fail and preserve the file.
+            sys.exit(1)
+        except Exception as e:
+            print(f"Error loading {filepath}: {e}")
+            sys.exit(1)
     return []
 
 def save_data(data, filepath):
