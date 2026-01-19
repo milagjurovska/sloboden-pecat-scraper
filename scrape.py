@@ -15,11 +15,10 @@ except Exception:
 
 API_BASE_URL = "https://www.slobodenpecat.mk/wp-json/wp/v2/posts"
 DATA_DIR = "data"
-MAX_PAGES_PER_CATEGORY = 9999  
+MAX_PAGES_PER_CATEGORY = 5 
 DELAY = 0.2
 
 def get_category_file(category_name):
-    """Get the file path for a specific category."""
     os.makedirs(DATA_DIR, exist_ok=True)
     return os.path.join(DATA_DIR, f"{category_name}.json")
 
