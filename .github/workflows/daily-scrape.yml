@@ -27,11 +27,31 @@ jobs:
         run: |
           pip install -r requirements.txt
       
+      - name: Check data health
+        run: |
+          echo "### Data Statistics" >> $GITHUB_STEP_SUMMARY
+          echo "File count: $(ls data/*.json | wc -l)" >> $GITHUB_STEP_SUMMARY
+          echo "Total size: $(du -sh data/ | cut -f1)" >> $GITHUB_STEP_SUMMARY
+          
+          # Check for LFS pointers vs real files
+          FIRST_FILE=$(ls data/*.json | head -n 1)
+          if grep -q "version https://git-lfs.github.com/spec/v1" "$FIRST_FILE"; then
+            echo ":warning: **CRITICAL: LFS files not downloaded correctly (pointers detected).**" >> $GITHUB_STEP_SUMMARY
+            echo "This usually means you are out of LFS bandwidth." >> $GITHUB_STEP_SUMMARY
+          else
+            echo ":white_check_mark: LFS data verified (actual files present)." >> $GITHUB_STEP_SUMMARY
+          fi
+
       - name: Run scraper
         run: |
           python scrape.py
-        continue-on-error: true  # Don't fail workflow if scraper has issues
       
+      - name: Post-scrape report
+        run: |
+          echo "### Post-Scrape Stats" >> $GITHUB_STEP_SUMMARY
+          echo "Size after scrape: $(du -sh data/ | cut -f1)" >> $GITHUB_STEP_SUMMARY
+          git status --short data/ >> $GITHUB_STEP_SUMMARY || true
+
       - name: Configure Git
         run: |
           git config user.name "GitHub Actions Bot"
@@ -40,7 +60,12 @@ jobs:
       - name: Commit and push changes
         run: |
           git add data/*.json
-          git diff --staged --quiet || git commit -m "Daily scrape: $(date +'%Y-%m-%d %H:%M:%S')"
-          git push
+          if git diff --staged --quiet; then
+            echo "No changes to commit" >> $GITHUB_STEP_SUMMARY
+          else
+            git commit -m "Daily scrape: $(date +'%Y-%m-%d %H:%M:%S')"
+            git push
+            echo ":rocket: Changes pushed successfully!" >> $GITHUB_STEP_SUMMARY
+          fi
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
