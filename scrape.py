@@ -15,7 +15,7 @@ except Exception:
 
 API_BASE_URL = "https://www.slobodenpecat.mk/wp-json/wp/v2/posts"
 DATA_DIR = "data"
-MAX_PAGES_PER_CATEGORY = 5 
+MAX_PAGES_PER_CATEGORY = 20
 DELAY = 0.2
 
 def get_category_file(category_name):
