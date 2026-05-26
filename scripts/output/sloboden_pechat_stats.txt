@@ -1,0 +1,31 @@
+Sloboden Pechat Category Analytics
+Generated: 2026-05-26 16:14:07
+==================================================
+Total Posts: 374849
+Unique Categories: 26
+Average Posts per Category: 14417.27
+Top Category: makedonija
+Top Category Count: 96449
+==================================================
+
+TOP 20 CATEGORIES:
+ 1. makedonija                      96449 posts (25.73%)
+ 2. svet                            83274 posts (22.22%)
+ 3. sport                           37086 posts ( 9.89%)
+ 4. region                          33102 posts ( 8.83%)
+ 5. ekonomija                       30674 posts ( 8.18%)
+ 6. vi-preporachuvame               21617 posts ( 5.77%)
+ 7. hronika                         18641 posts ( 4.97%)
+ 8. skopje                          11732 posts ( 3.13%)
+ 9. zivot                            8663 posts ( 2.31%)
+10. zabava                           5710 posts ( 1.52%)
+11. zdravje                          5388 posts ( 1.44%)
+12. kolumni                          4031 posts ( 1.08%)
+13. scena                            3152 posts ( 0.84%)
+14. kultura                          2991 posts ( 0.80%)
+15. zena                             2969 posts ( 0.79%)
+16. film-i-muzika                    2096 posts ( 0.56%)
+17. semejstvo                        1626 posts ( 0.43%)
+18. fudbal                           1579 posts ( 0.42%)
+19. milenici                         1040 posts ( 0.28%)
+20. tehnologija                      1002 posts ( 0.27%)

@@ -1,0 +1,26 @@
+DATASET COMPARISON REPORT
+Generated: 2026-05-26 16:20:22
+======================================================================
+
+FEMINA FORUM
+----------------------------------------------------------------------
+Source:          https://forum.femina.mk/
+Type:            Forum Discussions
+Total Records:   10,583
+Records with Content: 10,556
+Percentage of Combined: 2.7%
+
+SLOBODEN PECHAT
+----------------------------------------------------------------------
+Source:          https://www.slobodenpecat.mk/
+Type:            News Articles (WordPress API)
+Total Records:   374,849
+Records with Content: 374,849
+Percentage of Combined: 97.3%
+
+COMBINED DATASET
+----------------------------------------------------------------------
+Total Records:   385,432
+Total with Content: 385,405
+Data Types:      Forum Discussions + News Articles
+Coverage:        Macedonian Language Text

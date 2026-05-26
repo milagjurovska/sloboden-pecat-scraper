@@ -1,0 +1,39 @@
+DATASET CONTENT QUALITY ANALYSIS
+Generated: 2026-05-26 16:16:16
+======================================================================
+
+FEMINA FORUM
+----------------------------------------------------------------------
+Total Records:           10,583
+Records with Content:    10,556
+Empty Records:           27
+Content Fill Rate:       99.7%
+
+Total Characters:        6,745,901
+Total Words:             1,172,656
+Avg Words per Record:    111.09
+Avg Characters/Record:   639.06
+
+SLOBODEN PECHAT
+----------------------------------------------------------------------
+Total Records:           374,849
+Records with Content:    374,849
+Empty Records:           0
+Content Fill Rate:       100.0%
+
+Total Characters:        649,465,504
+Total Words:             100,074,880
+Avg Words per Record:    266.97
+Avg Characters/Record:   1732.61
+
+COMBINED DATASET SUMMARY
+----------------------------------------------------------------------
+Total Records:           385,432
+Total Words:             101,247,536
+Total Characters:        656,211,405
+Average Words/Record:    262.69
+
+DATA COMPOSITION
+----------------------------------------------------------------------
+Femina Forum:   10,583 records (2.7%)
+Sloboden Pechat: 374,849 records (97.3%)
